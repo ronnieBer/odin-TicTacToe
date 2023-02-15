@@ -11,7 +11,56 @@
 <body>
     <div class="container">
         <div class="modal">
-
+            <div class="modal-form-content">
+                <div class="form-border"></div>
+                <form action="" class="game-setup">
+                    <h1 class="form-title">Game Setup</h1>
+                    <div class="board-setup">
+                        <label for="game-opponent">
+                            Game Opponent
+                            <select name="gOpponent" id="game-opponent">
+                                <option value="ai">AI</option>
+                                <option value="human">HUMAN</option>
+                            </select>
+                        </label>
+                        <label for="ai-level">
+                            AI Level
+                            <select name="aiLevel" id="ai-level">
+                                <option value="easy">EASY</option>
+                                <option value="hard">HARD</option>
+                            </select>
+                        </label> 
+                    </div>
+                    <div class="player-name-input">
+                        <label for="p1Name">
+                            Player One
+                            <input type="text" name="p1Name" id="p1Name" placeholder="NAME" autocomplete="off" required>
+                        </label>
+                        <label for="p2Name">
+                            Player Two
+                            <input type="text" name="p2Name" id="p2Name" placeholder="NAME" autocomplete="off" required>
+                        </label>
+                    </div>
+                    <div class="player-symbol">
+                        <h2>Select Your Symbol</h2>
+                        <div class="symbol-selection">
+                            <label for="o-symbol" class="turn">
+                                1st TURN
+                                <span>O</span>
+                                <input type="radio" name="p1Symbol" id="o-symbol" value="o">
+                            </label>
+                            <span></span>
+                            <label for="x-symbol" class="turn">
+                                <input type="radio" name="p1Symbol" id="x-symbol" value="x">
+                                <span>X</span>
+                                2nd TURN
+                            </label>
+                        </div>
+                    </div>
+                    <div class="error-message"></div>
+                    <button type="submit">Start Game</button>
+                </form>
+            </div>
         </div>
 
         <header>
