@@ -210,3 +210,16 @@ main {
     color: #838383;
 }
 /* Game Board End */
+
+footer {
+    /* border: 1px solid magenta; */
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    font-size: .80rem;
+    color: #9d9d9d;
+    height: 5vh;
+    width: 100vw;
+    bottom: 0;
+}
