@@ -42,3 +42,171 @@ header > h1 {
     font-weight: 500;
     text-align: center;
 }
+
+/* Game Board Start */
+main {
+    /* border: 1px solid magenta; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url(images/kseniya-lapteva-bw6EB47LpfU-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.game-board-mask {
+    /* border: 1px solid rgb(221, 200, 14); */
+    position: absolute;
+    display: flex;
+    width: 450px;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board {
+    /* border: 1px solid rgb(17, 0, 255); */
+    width: 450px;
+    height: 450px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 3px solid rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.cell.x {
+    background-image: url(images/X.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cell.o {
+    background-image: url(images/O.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(7),
+.cell:nth-child(8) {
+    border-bottom: none;
+}
+
+.score-board {
+    /* border: 1px solid magenta; */
+    display: flex;
+    position: absolute;
+    grid-template-columns: repeat(3, auto);
+    /* max-width: 1000px; */
+    min-width: 450px;
+    width: 75vw;
+    height: 100px;
+    bottom: 5vh;
+}
+
+.game-round,
+.player-one,
+.player-two {
+    /* border: 1px solid rgb(35, 196, 91); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    min-width: 175px;
+}
+
+.game-round {
+    /* border: 1px solid magenta; */
+    order: 2;
+}
+
+.material-icons-round.gray {
+    font-size: 34px;
+    display: block;
+    color: #838383;
+    font-weight: 400;
+}
+
+.material-icons-round.md {
+    font-size: 34px;
+    color: #000000;
+    font-weight: 700;
+}
+
+.game-round > h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    text-align: center;
+    gap: 5px;
+}
+
+.game-round > p {
+    font-family: 'Gluten', cursive;
+    font-size: 4.5rem;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.player-one {
+    order: 1;
+}
+
+.player-two {
+    order: 3;
+}
+
+.player-name {
+    font-weight: 400;
+    color: #838383;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.player-name.md {
+    color: #000000;
+    font-weight: 700;
+}
+
+.player-one > .score,
+.player-two > .score {
+    padding-top: 15px;
+}
+
+.player-one > .score > .p1-symbol,
+.player-two > .score > .p2-symbol {
+    font-family: 'Gluten', cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: capitalize;
+    color: #838383;
+}
+/* Game Board End */
