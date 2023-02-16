@@ -404,3 +404,60 @@ footer {
     border: none;
 }
 /* Form End */
+
+/* Game Result Start */
+.modal-game-result {
+    /* border: 1px solid magenta; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 65vh;
+    border-radius: 10px;
+}
+
+.game-result {
+    font-family: 'Gluten', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-result > h1 {
+    font-size: 5.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.game-result > h2 {
+    font-size: 4.625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.new-game {
+    position: absolute;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.563rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: none;
+    border: 2px solid #838383;
+    border-radius: 10px;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.new-game:hover {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+}
+
+.hide {
+    display: none;
+}
+/* Game Result End */
