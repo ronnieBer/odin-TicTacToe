@@ -60,4 +60,20 @@ const gameSetupInput = (() => {
     }
 
     selectOpponent()
+
+    function selectSymbol() {
+        if (_pSymbolBtn[0].checked == true) {
+            _pSymbolLabel[0].style.color = 'black';
+            _pSymbolLabel[1].style.color = '#838383';
+            // console.log('O symbol selected');
+            return;
+        }
+    
+        if (_pSymbolBtn[1].checked == true) {
+            _pSymbolLabel[0].style.color = '#838383';
+            _pSymbolLabel[1].style.color = 'black';
+            // console.log('X symbol selected');
+            return;
+        }
+    }
 })();
