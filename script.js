@@ -37,4 +37,27 @@ const gameSetupInput = (() => {
     const _pSymbolBtn = document.querySelectorAll('input[type="radio"]'); // player 1 symbol selection button
     const _pSymbolLabel = [...document.getElementsByClassName('turn')]; // player 1 symbol selection level
     const _gameInput = document.querySelector('.game-setup'); // form
+
+    function selectOpponent() {
+        if (_selectOpponentLevel[0].value === _gameOpponentOption[0].value) {
+            _selectOpponentLevel[1].removeAttribute('disabled', '');
+            _pNameInput[1].setAttribute('readonly', '');
+        }
+
+        if (_selectOpponentLevel[1].value === _gameLevelOption[0].value) {
+            _pNameInput[1].value = 'Easy AI';
+        } 
+        
+        if (_selectOpponentLevel[1].value === _gameLevelOption[1].value) {
+            _pNameInput[1].value = 'Hard AI';
+        }
+    
+        if (_selectOpponentLevel[0].value === _gameOpponentOption[1].value) {
+            _selectOpponentLevel[1].setAttribute('disabled', '');
+            _pNameInput[1].removeAttribute('readonly', '');
+            _pNameInput[1].value = '';
+        }
+    }
+
+    selectOpponent()
 })();
