@@ -95,6 +95,12 @@ const gameSetupInput = (() => {
         const data = Object.fromEntries(fd);
         const gameData = gameSetup(data.gOpponent, data.aiLevel, data.p1Name, data.p2Name, data.p1Symbol);
 
+        // Player One Symbol Validation
+        if (_pSymbolBtn[0].checked == false && _pSymbolBtn[1].checked == false) {
+            document.querySelector('.error-message').textContent = 'Pleas select your symbol!';
+            return;
+        }
+
         console.log(gameData);
     })
 
