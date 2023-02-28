@@ -93,6 +93,9 @@ const gameSetupInput = (() => {
         const fd = new FormData(_gameInput);
         // Transform a list of key-value pairs into an object
         const data = Object.fromEntries(fd);
+        const gameData = gameSetup(data.gOpponent, data.aiLevel, data.p1Name, data.p2Name, data.p1Symbol);
+
+        console.log(gameData);
     })
 
 })();
