@@ -89,7 +89,8 @@ const gameSetupInput = (() => {
     _gameInput.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        
+        // Initialize Form Input Data
+        const fd = new FormData(_gameInput);
     })
 
 })();
