@@ -80,4 +80,8 @@ const gameSetupInput = (() => {
     _selectOpponentLevel.forEach(select => {
         select.addEventListener('change', () => selectOpponent());
     });
+
+    _pSymbolBtn.forEach(button => {
+        button.addEventListener('click', () => selectSymbol());
+    });
 })();
