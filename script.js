@@ -27,3 +27,14 @@ function gameSetup(gOpponent, aiLevel, p1Name, p2Name, p1Symbol) {
         gameOver
     }
 }
+
+// Form Input module
+const gameSetupInput = (() => {
+    const _selectOpponentLevel = document.querySelectorAll('select'); // game opponent and ai level selection
+    const _gameOpponentOption = [..._selectOpponentLevel[0].getElementsByTagName('option')]; // game opponent options
+    const _gameLevelOption = [..._selectOpponentLevel[1].getElementsByTagName('option')]; // ai level options
+    const _pNameInput = document.querySelectorAll('input[type="text"]'); // player 1 and player 2 name input
+    const _pSymbolBtn = document.querySelectorAll('input[type="radio"]'); // player 1 symbol selection button
+    const _pSymbolLabel = [...document.getElementsByClassName('turn')]; // player 1 symbol selection level
+    const _gameInput = document.querySelector('.game-setup'); // form
+})();
