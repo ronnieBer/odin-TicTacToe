@@ -84,4 +84,12 @@ const gameSetupInput = (() => {
     _pSymbolBtn.forEach(button => {
         button.addEventListener('click', () => selectSymbol());
     });
+
+    // Form Start Game Button
+    _gameInput.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        
+    })
+
 })();
