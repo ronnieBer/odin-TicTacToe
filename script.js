@@ -76,4 +76,8 @@ const gameSetupInput = (() => {
             return;
         }
     }
+
+    _selectOpponentLevel.forEach(select => {
+        select.addEventListener('change', () => selectOpponent());
+    });
 })();
