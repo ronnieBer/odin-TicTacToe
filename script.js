@@ -91,6 +91,8 @@ const gameSetupInput = (() => {
 
         // Initialize Form Input Data
         const fd = new FormData(_gameInput);
+        // Transform a list of key-value pairs into an object
+        const data = Object.fromEntries(fd);
     })
 
 })();
