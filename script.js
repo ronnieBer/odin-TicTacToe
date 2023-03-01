@@ -105,3 +105,14 @@ const gameSetupInput = (() => {
     })
 
 })();
+
+// Display Controller Module
+const displayController = (() => {
+    const modal = document.querySelector('.modal'); // Modal
+    const modalFormContent = document.querySelector('.modal-form-content'); // Modal form
+    const modalGameResult = document.querySelector('.modal-game-result'); // Modal end game result
+    const gameBoard = document.querySelector('.game-board'); // Game board
+    const scoreBoard = document.querySelector('.score-board'); // Score board
+    const newGameBtn = document.querySelector('.new-game'); // New game button
+
+})();
