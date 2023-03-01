@@ -108,11 +108,23 @@ const gameSetupInput = (() => {
 
 // Display Controller Module
 const displayController = (() => {
-    const modal = document.querySelector('.modal'); // Modal
-    const modalFormContent = document.querySelector('.modal-form-content'); // Modal form
-    const modalGameResult = document.querySelector('.modal-game-result'); // Modal end game result
-    const gameBoard = document.querySelector('.game-board'); // Game board
-    const scoreBoard = document.querySelector('.score-board'); // Score board
-    const newGameBtn = document.querySelector('.new-game'); // New game button
+    const _modal = document.querySelector('.modal'); // Modal
+    const _modalFormContent = document.querySelector('.modal-form-content'); // Modal form
+    const _modalGameResult = document.querySelector('.modal-game-result'); // Modal end game result
+    const _gameBoard = document.querySelector('.game-board'); // Game board
+    const _scoreBoard = document.querySelector('.score-board'); // Score board
+    const _newGameBtn = document.querySelector('.new-game'); // New game button
 
+    function hideForm() {
+        _modal.classList.add('hide');
+        _modalFormContent.classList.add('hide');
+        showGame();
+    }
+
+    function showGame() {
+        _gameBoard.classList.remove('hide');
+        _scoreBoard.classList.remove('hide');
+    }
+
+    return {hideForm}
 })();
