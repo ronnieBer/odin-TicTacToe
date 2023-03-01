@@ -148,5 +148,10 @@ const displayController = (() => {
         _modalGameResult.classList.add('hide');
     }
 
+    _newGameBtn.addEventListener('click', () => {
+        location.reload(); // Reloads the current document
+        showForm();
+    })
+
     return {hideForm, showGameResult}
 })();
