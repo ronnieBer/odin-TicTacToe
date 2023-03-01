@@ -126,5 +126,16 @@ const displayController = (() => {
         _scoreBoard.classList.remove('hide');
     }
 
-    return {hideForm}
+    function showGameResult() {
+        _modal.classList.remove('hide');
+        _modalGameResult.classList.remove('hide');
+        hideGame();
+    }
+
+    function hideGame() {
+        _gameBoard.classList.add('hide');
+        _scoreBoard.classList.add('hide');
+    }
+
+    return {hideForm, showGameResult}
 })();
