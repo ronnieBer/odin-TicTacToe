@@ -197,6 +197,9 @@ const gameController = (() => {
         data.pTurn++;
         // put player symbol to game board
         drawMarkers(cellId, currentPlayer, data)
+
+        // swap player turns
+        swapPlayerTurns(data);
     }
 
     function drawMarkers(cell, player, data) {
@@ -205,5 +208,9 @@ const gameController = (() => {
         _cellElements[cell].classList.add(player);
     }
 
-    return {initializeGame}
+    function swapPlayerTurns(data) {
+        data.currentPlayer = data.currentPlayer === data.p1Symbol ? data.p2Symbol : data.p1Symbol;
+    }
+
+    return {initializeGame, drawMarkers, swapPlayerTurns}
 })();
