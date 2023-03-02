@@ -155,3 +155,10 @@ const displayController = (() => {
 
     return {hideForm, showGameResult}
 })();
+
+// Game Controller Module
+const gameController = (() => {
+    const cellElements = document.querySelectorAll('[data-cell]'); // Pull in cells from DOM
+    const gameBoardMask = document.querySelector('.game-board-mask');
+    
+})();
