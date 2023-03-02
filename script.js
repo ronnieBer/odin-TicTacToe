@@ -198,6 +198,8 @@ const gameController = (() => {
         // put player symbol to game board
         drawMarkers(cellId, currentPlayer, data)
 
+        // check for win and draw
+        endGame(data, currentPlayer);
         // swap player turns
         swapPlayerTurns(data);
     }
@@ -212,5 +214,29 @@ const gameController = (() => {
         data.currentPlayer = data.currentPlayer === data.p1Symbol ? data.p2Symbol : data.p1Symbol;
     }
 
-    return {initializeGame, drawMarkers, swapPlayerTurns}
+    function endGame(data, currentPlayer) {
+        if (checkWinner(data, currentPlayer)) {
+            let winner = currentPlayer === data.p1Symbol ? data.p1Name : data.p2Name;
+            console.log(winner);
+            data.gameOver = true;
+        } else if (data.pTurn >= 9 && data.gBoard.filter((cell) => cell !== 'number')) {
+            console.log('Tie');
+            data.gameOver = true;
+        }
+    }
+
+    function checkWinner(data, currentPlayer) {
+        let result = false;
+        _winningPattern.forEach(condition => {
+            if (data.gBoard[condition[0]] === currentPlayer && 
+                data.gBoard[condition[1]] === currentPlayer &&
+                data.gBoard[condition[2]] === currentPlayer
+            ) {
+                result = true;
+            }
+        });
+        return result;
+    }
+
+    return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner}
 })();
