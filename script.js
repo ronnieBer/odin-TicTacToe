@@ -180,9 +180,29 @@ const gameController = (() => {
     function addCellEventListener(data) {
         _cellElements.forEach(cell => {
             cell.addEventListener('click', (e) => {
-                console.log(e.target.id, data)
+                // console.log(e.target.id, data);
+                placeMarker(e.target.id, data);
             });
         });
+    }
+
+    function placeMarker(cellId, data) {
+        const currentPlayer = data.currentPlayer;
+
+        // Prevent player from clicking the cell containing 'o' and 'x' marker
+        if (_cellElements[cellId].classList.contains('o') ||
+            _cellElements[cellId].classList.contains('x')) return;
+        if (data.gameOver === true) return;
+
+        data.pTurn++;
+        // put player symbol to game board
+        drawMarkers(cellId, currentPlayer, data)
+    }
+
+    function drawMarkers(cell, player, data) {
+        if (data.gameOver === true) return
+        data.gBoard[cell] = player;
+        _cellElements[cell].classList.add(player);
     }
 
     return {initializeGame}
