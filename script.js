@@ -102,6 +102,7 @@ const gameSetupInput = (() => {
         }
 
         console.log(gameData);
+        gameController.initializeGame(gameData);
     })
 
 })();
@@ -158,9 +159,9 @@ const displayController = (() => {
 
 // Game Controller Module
 const gameController = (() => {
-    const cellElements = document.querySelectorAll('[data-cell]'); // Pull in cells from DOM
-    const gameBoardMask = document.querySelector('.game-board-mask');
-    const winningPattern = [
+    const _cellElements = document.querySelectorAll('[data-cell]'); // Pull in cells from DOM
+    const _gameBoardMask = document.querySelector('.game-board-mask');
+    const _winningPattern = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8],
@@ -171,5 +172,18 @@ const gameController = (() => {
         [2, 4, 6],
     ];
 
-    
+    function initializeGame(data) {
+        addCellEventListener(data);
+        displayController.hideForm();
+    }
+
+    function addCellEventListener(data) {
+        _cellElements.forEach(cell => {
+            cell.addEventListener('click', (e) => {
+                console.log(e.target.id, data)
+            });
+        });
+    }
+
+    return {initializeGame}
 })();
