@@ -203,6 +203,13 @@ const gameController = (() => {
         endGame(data, currentPlayer);
         // swap player turns
         swapPlayerTurns(data);
+        // log player turns
+        logPlayerTurn(data);
+    }
+
+    function logPlayerTurn(data) {
+        if (data.gameOver === true) return;
+        scoreboardDisplay.displayPlayerTurn(data);
     }
 
     function drawMarkers(cell, player, data) {
@@ -239,7 +246,7 @@ const gameController = (() => {
         return result;
     }
 
-    return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner}
+    return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner, logPlayerTurn}
 })();
 
 // Scoreboard Display Module
