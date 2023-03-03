@@ -252,10 +252,16 @@ const scoreboardDisplay = (() => {
 
     function initializeScoreBoard(data) {
         displayGameRound(data);
+        displayPlayerName(data)
     }
 
     function displayGameRound(data) {
         _roundCount.textContent = data.gRound;
+    }
+
+    function displayPlayerName(data) {
+        _playerName[0].textContent = data.p1Name;
+        _playerName[1].textContent = data.p2Name;
     }
 
     return {initializeScoreBoard}
