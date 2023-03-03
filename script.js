@@ -254,6 +254,7 @@ const scoreboardDisplay = (() => {
         displayGameRound(data);
         displayPlayerName(data);
         displayPlayerTurn(data);
+        displayScoreSymbol(data);
     }
 
     function displayGameRound(data) {
@@ -280,6 +281,16 @@ const scoreboardDisplay = (() => {
             _playerName[1].style.fontWeight = '700';
             _turnArrow[1].classList.add('md');
             _turnArrow[0].classList.remove('md');
+        }
+    }
+
+    function displayScoreSymbol(data) {
+        if (data.p1Symbol === 'o' && data.p2Symbol === 'x') {
+            _p1ScoreSymbol.forEach(symbol => symbol.textContent = 'O');
+            _p2ScoreSymbol.forEach(symbol => symbol.textContent = 'X');
+        } else {
+            _p1ScoreSymbol.forEach(symbol => symbol.textContent = 'X');
+            _p2ScoreSymbol.forEach(symbol => symbol.textContent = 'O');
         }
     }
 
