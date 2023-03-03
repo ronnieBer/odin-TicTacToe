@@ -173,6 +173,7 @@ const gameController = (() => {
     ];
 
     function initializeGame(data) {
+        data.gRound++;
         addCellEventListener(data);
         displayController.hideForm();
         scoreboardDisplay.initializeScoreBoard(data);
