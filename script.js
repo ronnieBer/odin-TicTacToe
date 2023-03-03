@@ -346,5 +346,10 @@ const scoreboardDisplay = (() => {
         }
     }
 
-    return {initializeScoreBoard, displayGameRound, displayPlayerTurn, getPlayerScore}
+    function resetPScoreDisplay() {
+        _p1ScoreSymbol.forEach(symbol => symbol.style.color = '#838383')
+        _p2ScoreSymbol.forEach(symbol => symbol.style.color = '#838383')
+    }
+
+    return {initializeScoreBoard, displayGameRound, displayPlayerTurn, getPlayerScore, resetPScoreDisplay}
 })();
