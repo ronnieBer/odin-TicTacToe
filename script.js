@@ -240,3 +240,14 @@ const gameController = (() => {
 
     return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner}
 })();
+
+// Scoreboard Display Module
+const scoreboardDisplay = (() => {
+    const _roundCount = document.querySelector('.round-number');
+    const _playerName = document.querySelectorAll('.player-name');
+    const _turnArrow = document.querySelectorAll('.material-icons-round');
+    const _p1ScoreSymbol = document.querySelectorAll('.p1-symbol');
+    const _p2ScoreSymbol = document.querySelectorAll('.p2-symbol');
+
+    
+})();
