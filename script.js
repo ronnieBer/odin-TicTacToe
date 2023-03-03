@@ -175,6 +175,7 @@ const gameController = (() => {
     function initializeGame(data) {
         addCellEventListener(data);
         displayController.hideForm();
+        scoreboardDisplay.initializeScoreBoard(data);
     }
 
     function addCellEventListener(data) {
@@ -249,5 +250,13 @@ const scoreboardDisplay = (() => {
     const _p1ScoreSymbol = document.querySelectorAll('.p1-symbol');
     const _p2ScoreSymbol = document.querySelectorAll('.p2-symbol');
 
-    
+    function initializeScoreBoard(data) {
+        displayGameRound(data);
+    }
+
+    function displayGameRound(data) {
+        _roundCount.textContent = data.gRound;
+    }
+
+    return {initializeScoreBoard}
 })();
