@@ -247,6 +247,18 @@ const gameController = (() => {
         return result;
     }
 
+    function resetGameBoard(data) {
+        scoreboardDisplay.displayGameRound(data);
+        data.gBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8,];
+        data.currentPlayer = 'o';
+        data.pTurn = 0;
+        scoreboardDisplay.displayPlayerTurn(data);
+        data.gameOver = false;
+        _cellElements.forEach(cell => {
+            cell.classList.remove('o', 'x');
+        });
+    }
+
     return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner, logPlayerTurn}
 })();
 
