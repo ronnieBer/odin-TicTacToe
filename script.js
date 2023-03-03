@@ -294,5 +294,57 @@ const scoreboardDisplay = (() => {
         }
     }
 
-    return {initializeScoreBoard, displayGameRound, displayPlayerTurn}
+    function getPlayerScore(data, winner) {
+        if (data.p1Name === winner) {
+            data.p1Score++
+            // console.log(winner ,p1Score);
+            if (data.gRound === 1 && data.p1Name === winner) {
+                _p1ScoreSymbol[0].style.color = '#000000';
+                _p2ScoreSymbol[0].style.color = '#d3d3d3';
+            }
+            else if (data.gRound === 2 && data.p1Name === winner) {
+                _p1ScoreSymbol[1].style.color = '#000000';
+                _p2ScoreSymbol[1].style.color = '#d3d3d3';
+            }
+            else if (data.gRound === 3 && data.p1Name === winner) {
+                _p1ScoreSymbol[2].style.color = '#000000';
+                _p2ScoreSymbol[2].style.color = '#d3d3d3';
+            }            
+            else if (data.gRound === 4 && data.p1Name === winner) {
+                _p1ScoreSymbol[3].style.color = '#000000';
+                _p2ScoreSymbol[3].style.color = '#d3d3d3';
+            }            
+            else if (data.gRound === 5 && data.p1Name === winner) {
+                _p1ScoreSymbol[4].style.color = '#000000';
+                _p2ScoreSymbol[4].style.color = '#d3d3d3';
+            }            
+        } 
+        
+        if (data.p2Name === winner) {
+            data.p2Score++
+            // console.log(winner, p2Score);
+            if (data.gRound === 1 && data.p2Name === winner) {
+                _p2ScoreSymbol[0].style.color = '#000000';
+                _p1ScoreSymbol[0].style.color = '#d3d3d3';
+            }
+            else if (data.gRound === 2 && data.p2Name === winner) {
+                _p2ScoreSymbol[1].style.color = '#000000';
+                _p1ScoreSymbol[1].style.color = '#d3d3d3';
+            }
+            else if (data.gRound === 3 && data.p2Name === winner) {
+                _p2ScoreSymbol[2].style.color = '#000000';
+                _p1ScoreSymbol[2].style.color = '#d3d3d3';
+            }            
+            else if (data.gRound === 4 && data.p2Name === winner) {
+                _p2ScoreSymbol[3].style.color = '#000000';
+                _p1ScoreSymbol[3].style.color = '#d3d3d3';
+            }            
+            else if (data.gRound === 5 && data.p2Name === winner) {
+                _p2ScoreSymbol[4].style.color = '#000000';
+                _p1ScoreSymbol[4].style.color = '#d3d3d3';
+            }
+        }
+    }
+
+    return {initializeScoreBoard, displayGameRound, displayPlayerTurn, getPlayerScore}
 })();
