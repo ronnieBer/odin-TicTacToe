@@ -266,10 +266,22 @@ const gameController = (() => {
     }
 
     function resetGame(data) {
+        displayWinnerOf5Games(data);
         if (data.gRound === 5) return;
         data.gRound++;
-        resetGameBoard(data)
+        resetGameBoard(data);
     }
+
+    function displayWinnerOf5Games(data) {
+        if (data.gRound === 5 && data.gameOver === true || 
+            data.p1Score === 3 && data.gameOver === true ||
+            data.p2Score === 3 && data.gameOver === true) {
+            displayController.showGameResult();
+            resetGameBoard(data);
+            scoreboardDisplay.resetPScoreDisplay();
+        }
+    }
+
 
     return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner, logPlayerTurn}
 })();
