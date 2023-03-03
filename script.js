@@ -225,10 +225,11 @@ const gameController = (() => {
     function endGame(data, currentPlayer) {
         if (checkWinner(data, currentPlayer)) {
             let winner = currentPlayer === data.p1Symbol ? data.p1Name : data.p2Name;
-            console.log(winner);
+            // console.log(winner);
+            scoreboardDisplay.getPlayerScore(data, winner);
             data.gameOver = true;
         } else if (data.pTurn >= 9 && data.gBoard.filter((cell) => cell !== 'number')) {
-            console.log('Tie');
+            // console.log('Tie');
             data.gameOver = true;
         }
     }
