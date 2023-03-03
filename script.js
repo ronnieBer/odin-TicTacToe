@@ -252,7 +252,8 @@ const scoreboardDisplay = (() => {
 
     function initializeScoreBoard(data) {
         displayGameRound(data);
-        displayPlayerName(data)
+        displayPlayerName(data);
+        displayPlayerTurn(data);
     }
 
     function displayGameRound(data) {
@@ -264,5 +265,23 @@ const scoreboardDisplay = (() => {
         _playerName[1].textContent = data.p2Name;
     }
 
-    return {initializeScoreBoard}
+    function displayPlayerTurn(data) {
+        if (data.p1Symbol === data.currentPlayer) {
+            _playerName[0].style.color = '#000000';
+            _playerName[0].style.fontWeight = '700';
+            _playerName[1].style.color = '#838383';
+            _playerName[1].style.fontWeight = '400';
+            _turnArrow[0].classList.add('md');
+            _turnArrow[1].classList.remove('md');
+        } else {
+            _playerName[0].style.color = '#838383';
+            _playerName[0].style.fontWeight = '400';
+            _playerName[1].style.color = '#000000';
+            _playerName[1].style.fontWeight = '700';
+            _turnArrow[1].classList.add('md');
+            _turnArrow[0].classList.remove('md');
+        }
+    }
+
+    return {initializeScoreBoard, displayGameRound, displayPlayerTurn}
 })();
