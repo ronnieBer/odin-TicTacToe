@@ -276,12 +276,28 @@ const gameController = (() => {
         if (data.gRound === 5 && data.gameOver === true || 
             data.p1Score === 3 && data.gameOver === true ||
             data.p2Score === 3 && data.gameOver === true) {
+            getWinnerOf5Games(data);
             displayController.showGameResult();
             resetGameBoard(data);
             scoreboardDisplay.resetPScoreDisplay();
         }
     }
 
+    function updateDOM(className, textMessage) {
+        let elem = document.querySelector(`.${className}`);
+        elem.textContent = textMessage
+    }
+
+    function getWinnerOf5Games(data) {
+        displayController.showGameResult();
+        if (data.p1Score > data.p2Score || data.p1Score === 3) {
+            updateDOM("winner-name", data.p1Name.toUpperCase());
+        } else if (data.p1Score < data.p2Score || data.p2Score === 3) {
+            updateDOM("winner-name", data.p2Name.toUpperCase());
+        } else {
+            updateDOM("result-message", "It's a Tie!");
+        }
+    }
 
     return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner, logPlayerTurn}
 })();
