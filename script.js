@@ -228,9 +228,15 @@ const gameController = (() => {
             // console.log(winner);
             scoreboardDisplay.getPlayerScore(data, winner);
             data.gameOver = true;
+            setTimeout(() => {
+                resetGame(data);
+            },800);
         } else if (data.pTurn >= 9 && data.gBoard.filter((cell) => cell !== 'number')) {
             // console.log('Tie');
             data.gameOver = true;
+            setTimeout(() => {
+                resetGame(data);
+            },800);
         }
     }
 
@@ -257,6 +263,12 @@ const gameController = (() => {
         _cellElements.forEach(cell => {
             cell.classList.remove('o', 'x');
         });
+    }
+
+    function resetGame(data) {
+        if (data.gRound === 5) return;
+        data.gRound++;
+        resetGameBoard(data)
     }
 
     return {initializeGame, drawMarkers, swapPlayerTurns, endGame, checkWinner, logPlayerTurn}
