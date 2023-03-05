@@ -418,8 +418,27 @@ const scoreboardDisplay = (() => {
 // AI Player Module
 const aiPlayer = (() => {
     // Easy AI Move
+    function easyAiMove(data) {
+        // Game board available space
+        let availableSpaces = data.gBoard.filter((cell) => cell !== "x" && cell !== "o");
+        // Easy AI move
+        let easyMove = availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
+        // AI marker
+        const easyAiPlayer = data.p2Symbol;
+
+        setTimeout(() => {
+            if (data.gameOver === true) return
+            data.pTurn++;
+            gameController.drawMarkers(easyMove, easyAiPlayer, data)
+            gameController.endGame(data, easyAiPlayer);
+            gameController.swapPlayerTurns(data);
+            gameController.logPlayerTurn(data);
+        }, 800);
+    }
 
     // Hard AI Move
 
     // Minimax Algorithm
+
+    return {easyAiMove}
 })();
