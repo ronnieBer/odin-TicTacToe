@@ -444,8 +444,78 @@ const aiPlayer = (() => {
     }
 
     // Hard AI Move
+    function hardAiMove(data) {
+        // Hard AI move
+        let hardMove = minimax(data, hardAiPlayer).index;
+        // AI marker
+        const hardAiPlayer = data.p2Symbol;
+
+        setTimeout(() => {
+            if (data.gameOver === true) return
+            data.pTurn++;
+            gameController.drawMarkers(hardMove, hardAiPlayer, data)
+            gameController.endGame(data, hardAiPlayer);
+            gameController.swapPlayerTurns(data);
+            gameController.logPlayerTurn(data);
+        }, 800);
+        
+    }
 
     // Minimax Algorithm
+    function minimax(data, player) {
+        // Game board available space
+        let availableSpaces = data.gBoard.filter((cell) => cell !== "x" && cell !== "o");
 
-    return {easyAiMove}
+        if (gameController.checkWinner(data, data.p1Symbol)) {
+            return {score: -10};
+        } else if (gameController.checkWinner(data, data.p2Symbol)) {
+            return {score: 10}
+        } else if (availableSpaces.length === 0) {
+            return {score: 0}
+        }
+
+        const potentialMove = [];
+
+        for (let i = 0; i < availableSpaces.length; i++) {
+            let move = {};
+
+            move.index = data.gBoard[availableSpaces[i]];
+            data.gBoard[availableSpaces[i]] = player;
+
+            if (player === data.p2Symbol) {
+                move.score = minimax(data, data.p1Symbol).score;
+            } else {
+                move.score = minimax(data, data.p2Symbol).score;
+            }
+
+            data.gBoard[availableSpaces[i]] = move.index;
+            potentialMove.push(move);
+        }
+
+        let bestMove = 0;
+
+        if (player === data.p2Symbol) {
+            let bestScore = -2;
+
+            for (let i = 0; i < potentialMove.length; i++) {
+                if (potentialMove[i].score > bestScore) {
+                    bestScore = potentialMove[i].score;
+                    bestMove = i;
+                }
+            }
+        } else {
+            let bestScore = 2;
+
+            for (let i = 0; i < potentialMove.length; i++) {
+                if (potentialMove[i].score < bestScore) {
+                    bestScore = potentialMove[i].score;
+                    bestMove = i;
+                }
+            }
+        }
+
+        return potentialMove[bestMove];
+    }
+
+    return {easyAiMove, hardAiMove}
 })();
