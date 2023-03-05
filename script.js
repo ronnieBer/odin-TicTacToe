@@ -428,11 +428,10 @@ const scoreboardDisplay = (() => {
 
 // AI Player Module
 const aiPlayer = (() => {
-    // AI marker
-    const aiPlayerMarker = data.p2Symbol;
-
     // Easy AI Move
     function easyAiMove(data) {
+        // AI marker
+        const aiPlayerMarker = data.p2Symbol;
         // Game board available space
         let availableSpaces = data.gBoard.filter((cell) => cell !== "x" && cell !== "o");
         // Easy AI move
@@ -450,6 +449,8 @@ const aiPlayer = (() => {
 
     // Hard AI Move
     function hardAiMove(data) {
+        // AI marker
+        const aiPlayerMarker = data.p2Symbol;
         // Hard AI move
         let hardMove = minimax(data, aiPlayerMarker).index;
 
