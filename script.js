@@ -197,14 +197,21 @@ const gameController = (() => {
         if (data.gameOver === true) return;
 
         data.pTurn++;
-        // put player symbol to game board
+        // Put player symbol to game board
         drawMarkers(cellId, currentPlayer, data)
 
-        // check for win and draw
+        // AI move
+        if (data.gOpponent === 'ai' && data.aiLevel === 'easy') {
+            _gameBoardMask.classList.remove('hide'); // Preventing the player from clicking on the game board
+            aiPlayer.easyAiMove(data);
+            _gameBoardMask.classList.add('hide'); // Allowing the player to click on the game board
+        }
+
+        // Check for win and draw
         endGame(data, currentPlayer);
-        // swap player turns
+        // Swap player turns
         swapPlayerTurns(data);
-        // log player turns
+        // Log player turns
         logPlayerTurn(data);
     }
 
