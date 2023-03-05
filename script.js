@@ -177,6 +177,7 @@ const gameController = (() => {
         addCellEventListener(data);
         displayController.hideForm();
         scoreboardDisplay.initializeScoreBoard(data);
+        initializeAiPlayer(data);
     }
 
     function addCellEventListener(data) {
@@ -217,6 +218,21 @@ const gameController = (() => {
         swapPlayerTurns(data);
         // Log player turns
         logPlayerTurn(data);
+    }
+
+    // Allowing AI player to move first on the game board
+    function initializeAiPlayer(data) {
+        if (data.gameOver === true) return
+        if (data.gOpponent === 'ai' && data.aiLevel === 'easy' && data.p2Symbol === 'o') {
+            _gameBoardMask.classList.remove('hide');
+            aiPlayer.easyAiMove(data);
+            _gameBoardMask.classList.add('hide');
+        } else if (data.gOpponent === 'ai' && data.aiLevel === 'hard' && data.p2Symbol === 'o') {
+            _gameBoardMask.classList.remove('hide');
+            aiPlayer.hardAiMove(data);
+            _gameBoardMask.classList.add('hide');
+        }
+        return;
     }
 
     function logPlayerTurn(data) {
@@ -282,6 +298,7 @@ const gameController = (() => {
         if (data.gRound === 5) return;
         data.gRound++;
         resetGameBoard(data);
+        initializeAiPlayer(data);
     }
 
     function displayWinnerOf5Games(data) {
