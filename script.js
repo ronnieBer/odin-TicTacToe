@@ -205,6 +205,10 @@ const gameController = (() => {
             _gameBoardMask.classList.remove('hide'); // Preventing the player from clicking on the game board
             aiPlayer.easyAiMove(data);
             _gameBoardMask.classList.add('hide'); // Allowing the player to click on the game board
+        } else if (data.gOpponent === 'ai' && data.aiLevel === 'hard') {
+            _gameBoardMask.classList.remove('hide');
+            aiPlayer.hardAiMove(data);
+            _gameBoardMask.classList.add('hide');
         }
 
         // Check for win and draw
@@ -424,20 +428,21 @@ const scoreboardDisplay = (() => {
 
 // AI Player Module
 const aiPlayer = (() => {
+    // AI marker
+    const aiPlayerMarker = data.p2Symbol;
+
     // Easy AI Move
     function easyAiMove(data) {
         // Game board available space
         let availableSpaces = data.gBoard.filter((cell) => cell !== "x" && cell !== "o");
         // Easy AI move
         let easyMove = availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-        // AI marker
-        const easyAiPlayer = data.p2Symbol;
 
         setTimeout(() => {
             if (data.gameOver === true) return
             data.pTurn++;
-            gameController.drawMarkers(easyMove, easyAiPlayer, data)
-            gameController.endGame(data, easyAiPlayer);
+            gameController.drawMarkers(easyMove, aiPlayerMarker, data)
+            gameController.endGame(data, aiPlayerMarker);
             gameController.swapPlayerTurns(data);
             gameController.logPlayerTurn(data);
         }, 800);
@@ -446,15 +451,13 @@ const aiPlayer = (() => {
     // Hard AI Move
     function hardAiMove(data) {
         // Hard AI move
-        let hardMove = minimax(data, hardAiPlayer).index;
-        // AI marker
-        const hardAiPlayer = data.p2Symbol;
+        let hardMove = minimax(data, aiPlayerMarker).index;
 
         setTimeout(() => {
             if (data.gameOver === true) return
             data.pTurn++;
-            gameController.drawMarkers(hardMove, hardAiPlayer, data)
-            gameController.endGame(data, hardAiPlayer);
+            gameController.drawMarkers(hardMove, aiPlayerMarker, data)
+            gameController.endGame(data, aiPlayerMarker);
             gameController.swapPlayerTurns(data);
             gameController.logPlayerTurn(data);
         }, 800);
