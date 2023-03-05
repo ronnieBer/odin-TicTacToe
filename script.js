@@ -414,3 +414,12 @@ const scoreboardDisplay = (() => {
 
     return {initializeScoreBoard, displayGameRound, displayPlayerTurn, getPlayerScore, resetPScoreDisplay}
 })();
+
+// AI Player Module
+const aiPlayer = (() => {
+    // Easy AI Move
+
+    // Hard AI Move
+
+    // Minimax Algorithm
+})();
