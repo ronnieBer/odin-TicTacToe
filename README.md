@@ -1,1 +1,1 @@
-# odin-TicTacToe
+# PROJECT: TIC TAC TOE
