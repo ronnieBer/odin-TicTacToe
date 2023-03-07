@@ -14,3 +14,6 @@ In this fourth repository from The Odin Project Full Stack JavaScript curriculum
 - Player can choose first or second turn
 - With score board display
 - With best of five round game
+
+
+## Reflection/Outcome
