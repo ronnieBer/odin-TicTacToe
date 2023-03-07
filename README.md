@@ -20,3 +20,8 @@ In this fourth repository from The Odin Project Full Stack JavaScript curriculum
 
 
 #### :point_right: Tic Tac Toe [Live Demo](https://ronnieber.github.io/odin-TicTacToe/)
+
+
+#### Image Credit
+
+Photo by <a href="https://unsplash.com/@ksushlapush?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kseniya Lapteva</a> on <a href="https://unsplash.com/photos/bw6EB47LpfU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
