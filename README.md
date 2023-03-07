@@ -17,6 +17,7 @@ In this fourth repository from The Odin Project Full Stack JavaScript curriculum
 
 
 ## Reflection/Outcome
+Making this Tic Tac Toe javascript game wasn't easy for me, but after a lot of reading and watching videos about the factory function, scopes and closures, and the IIFE module pattern, I finally finished the game little by little.
 
 
 #### :point_right: Tic Tac Toe [Live Demo](https://ronnieber.github.io/odin-TicTacToe/)
